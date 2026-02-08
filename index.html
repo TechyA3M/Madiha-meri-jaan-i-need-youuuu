@@ -3,220 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Help Me Breathe 💖</title>
+<title>Love Trap 💖</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg,#ffc0cb,#ffb6c1);
-    font-family: 'Comic Sans MS', cursive;
-    text-align: center;
-    overflow: hidden;
+body{
+margin:0;
+overflow:hidden;
+background:linear-gradient(135deg,#ff9ecf,#ffc1e3);
+font-family:Arial, sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
 }
 
-/* Layout */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+.container{
+position:relative;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
 }
 
-h1 {
-    color: #ff1493;
-    font-size: 6vw;
-    max-width: 90%;
+h1{
+color:#d1006f;
+font-size:6vw;
+max-width:90%;
 }
 
-/* Buttons */
-.buttons {
-    position: relative;
-    width: 100%;
-    height: 150px;
+.buttons{
+position:relative;
+width:100%;
+height:200px;
 }
 
-button {
-    padding: 12px 25px;
-    font-size: 4vw;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    transition: 0.3s;
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:4vw;
+cursor:pointer;
+position:absolute;
+transition:0.2s;
 }
 
-.yes {
-    background-color: #ff69b4;
-    color: white;
-    left: 30%;
+.yes{
+background:#ff2e93;
+color:white;
+left:30%;
+top:50%;
+transform:translate(-50%,-50%);
 }
 
-.no {
-    background-color: white;
-    color: #ff1493;
-    left: 60%;
+.no{
+background:white;
+color:#ff2e93;
+left:65%;
+top:50%;
+transform:translate(-50%,-50%);
 }
 
-/* Floating Hearts */
-.heart {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #ff4da6;
-    transform: rotate(45deg);
-    animation: float 7s linear infinite;
-    opacity: 0.7;
+/* Hearts */
+.heart{
+position:absolute;
+width:18px;
+height:18px;
+background:#ff2e93;
+transform:rotate(45deg);
+animation:float 7s linear infinite;
+opacity:0.7;
 }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #ff4da6;
-    border-radius: 50%;
+.heart:before,
+.heart:after{
+content:'';
+position:absolute;
+width:18px;
+height:18px;
+background:#ff2e93;
+border-radius:50%;
 }
 
-.heart::before { top: -7px; left: 0; }
-.heart::after { left: -7px; top: 0; }
+.heart:before{top:-9px;}
+.heart:after{left:-9px;}
 
-@keyframes float {
-    0% { transform: translateY(100vh) rotate(45deg); }
-    100% { transform: translateY(-10vh) rotate(45deg); }
-}
-
-/* Baby */
-.baby {
-    width: 25vw;
-    max-width: 120px;
-    animation: bounce 0.6s infinite alternate;
-}
-
-.head {
-    width: 100%;
-    padding-top: 100%;
-    background: #ffe0bd;
-    border-radius: 50%;
-    position: relative;
-}
-
-.eye {
-    width: 10%;
-    height: 10%;
-    background: black;
-    border-radius: 50%;
-    position: absolute;
-    top: 35%;
-}
-
-.eye.left { left: 30%; }
-.eye.right { right: 30%; }
-
-.body {
-    width: 70%;
-    height: 40%;
-    background: #ff69b4;
-    border-radius: 20px;
-    margin: 0 auto;
-    margin-top: -10%;
-}
-
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
+@keyframes float{
+0%{transform:translateY(100vh) rotate(45deg);}
+100%{transform:translateY(-10vh) rotate(45deg);}
 }
 
 /* Sparkles */
-.sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: explode 1s ease-out forwards;
+.sparkle{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white;
+animation:explode 1s forwards;
 }
 
-@keyframes explode {
-    to {
-        transform: translate(var(--x), var(--y));
-        opacity: 0;
-    }
+@keyframes explode{
+to{
+transform:translate(var(--x),var(--y));
+opacity:0;
 }
+}
+
+/* Baby */
+.baby{
+width:120px;
+height:160px;
+margin:auto;
+position:relative;
+animation:bounce 0.6s infinite alternate;
+}
+
+@keyframes bounce{
+from{transform:translateY(0);}
+to{transform:translateY(-12px);}
+}
+
+.head{
+width:90px;
+height:90px;
+background:#ffe0bd;
+border-radius:50%;
+margin:auto;
+position:relative;
+}
+
+.eye{
+width:12px;
+height:12px;
+background:black;
+border-radius:50%;
+position:absolute;
+top:35px;
+animation:blink 3s infinite;
+}
+
+.eye.left{left:25px;}
+.eye.right{right:25px;}
+
+@keyframes blink{
+0%,95%,100%{height:12px;}
+97%{height:2px;}
+}
+
+.body{
+width:70px;
+height:70px;
+background:#ff2e93;
+border-radius:20px;
+margin:auto;
+margin-top:-10px;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="container" id="mainPage">
-    <h1>I can't breathe... will you help me? 💖</h1>
-    <div class="buttons">
-        <button class="yes" onclick="sayYes(event)">Yes</button>
-        <button class="no" id="noBtn" ontouchstart="moveNo()" onmouseover="moveNo()">No</button>
-    </div>
+<h1>I can't breathe... will you help me? 💖</h1>
+
+<div class="buttons">
+<button class="yes" onclick="sayYes(event)">Yes</button>
+<button class="no" id="noBtn" onclick="handleNo()">No</button>
+</div>
+
 </div>
 
 <div class="container" id="secondPage" style="display:none;">
-    <h1>YAYYYY FINALLY I CAN BREATHE 💕</h1>
-    <div class="baby">
-        <div class="head">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-        </div>
-        <div class="body"></div>
-    </div>
+<h1>YAYYYY FINALLY I CAN BREATHE 💕</h1>
+<div class="baby">
+<div class="head">
+<div class="eye left"></div>
+<div class="eye right"></div>
+</div>
+<div class="body"></div>
+</div>
 </div>
 
 <script>
-// Floating Hearts
-for(let i=0; i<25; i++){
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration = (5 + Math.random()*5) + "s";
-    document.body.appendChild(heart);
+
+// Floating hearts
+for(let i=0;i<30;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(heart);
 }
 
-// Keep No button inside screen
-function moveNo() {
-    let btn = document.getElementById("noBtn");
-    let maxX = window.innerWidth - btn.offsetWidth - 20;
-    let maxY = window.innerHeight - btn.offsetHeight - 20;
+// No button text cycle
+let noTexts=[
+"Please 🥺",
+"Don't be rude 😔",
+"Don't you have pity? 💔",
+"How could you 😭",
+"No option... only Yes 💕"
+];
 
-    let x = Math.random() * maxX;
-    let y = Math.random() * maxY;
+let clickCount=0;
 
-    btn.style.left = x + "px";
-    btn.style.top = y + "px";
+function handleNo(){
+let btn=document.getElementById("noBtn");
+
+// Change text
+if(clickCount<noTexts.length){
+btn.innerText=noTexts[clickCount];
+clickCount++;
 }
 
-// Sparkle Explosion
-function createSparkles(x, y) {
-    for(let i=0; i<25; i++){
-        let sparkle = document.createElement("div");
-        sparkle.className = "sparkle";
-        sparkle.style.left = x + "px";
-        sparkle.style.top = y + "px";
-        sparkle.style.setProperty('--x', (Math.random()*150-75)+"px");
-        sparkle.style.setProperty('--y', (Math.random()*150-75)+"px");
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 1000);
-    }
+// Move but keep inside screen
+let maxX=window.innerWidth-btn.offsetWidth-20;
+let maxY=window.innerHeight-btn.offsetHeight-20;
+
+let x=Math.random()*maxX;
+let y=Math.random()*maxY;
+
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+btn.style.transform="none";
 }
 
-function sayYes(event) {
-    createSparkles(event.clientX, event.clientY);
-    setTimeout(()=>{
-        document.getElementById("mainPage").style.display = "none";
-        document.getElementById("secondPage").style.display = "flex";
-    }, 400);
+// Sparkles
+function createSparkles(x,y){
+for(let i=0;i<30;i++){
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.left=x+"px";
+s.style.top=y+"px";
+s.style.setProperty('--x',(Math.random()*200-100)+"px");
+s.style.setProperty('--y',(Math.random()*200-100)+"px");
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),1000);
 }
+}
+
+function sayYes(e){
+createSparkles(e.clientX,e.clientY);
+setTimeout(()=>{
+document.getElementById("mainPage").style.display="none";
+document.getElementById("secondPage").style.display="flex";
+},400);
+}
+
 </script>
 
 </body>
-  </html>
+</html>
